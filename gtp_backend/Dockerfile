@@ -1,5 +1,5 @@
 # Python 3.12 이미지 기반
-FROM python:3.12
+FROM python:3.12-slim
 
 # 작업 디렉토리 설정
 WORKDIR /app
@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # wait-for-it.sh 스크립트 복사
 COPY wait-for-it.sh /app/wait-for-it.sh
+
+RUN chmod +x /app/wait-for-it.sh
 
 # 프로젝트 코드 복사
 COPY . /app/
